@@ -1,0 +1,386 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 20, 2015, 3:22:13 PM
+    Author     : Lakshitha
+*/
+.btn{
+    margin-right: 5px;
+}
+.btn-service{
+    margin-right: 0px;
+}
+/*=========Messages===================*/
+#successMessage{
+    background-color: #33cc00;
+    width: 100%/*700px*/;
+    padding: 15px 0 10px 5px;
+    /*height: 45px;*/
+    overflow: hidden;
+    font-size: 11px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    
+}
+
+#errorMessage{
+    background-color: #f22d47;
+    width: 100%/*700px*/;
+    padding: 15px 0 10px 5px;
+    /*height: 45px;*/
+    overflow: hidden;
+    font-size: 11pt;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+}
+#signsuccessMessage{
+    background-color: #33cc00;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    height: 45px;
+    font-size: 13px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    
+}
+
+#signerrorMessage{
+    background-color: #f22d47;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    height: 45px;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+}
+#rsuccessMessage{
+    background-color: #33cc00;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    height: 45px;
+    font-size: 13px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    
+}
+
+#rerrorMessage{
+    background-color: #f22d47;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    overflow: hidden;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+}
+
+#fsuccessMessage{
+    background-color: #33cc00;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    height: 45px;
+    font-size: 13px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    
+}
+
+#ferrorMessage{
+    background-color: #f22d47;
+    width: 100%/*700px*/;
+    padding: 15px 0 0 5px;
+    height: 45px;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+}
+
+.hideDiv{display: none;}
+
+
+/*============OVERRIDE====================*/
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.nav-tabs-custom{
+    margin-top: 60px;
+    margin-bottom: 0px;
+}
+.nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a{
+    padding: /*20px 35px;*/15px 12px;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a{
+    color: #F5F5F5;
+    font-size: 18px;
+    background: #83BBC8 none repeat scroll 0% 0%;
+}
+.nav-tabs-custom > .nav-tabs > li > a:hover{
+    color: #F5F5F5;
+    background: #48F562;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a, .nav-tabs-custom > .nav-tabs > li.active:hover > a{
+    background-color: #A9F09F;
+}
+
+
+#isnewbrand{ margin-left: 3px;}
+#faultdata, #accdata { margin-left: 15px;}
+.popupbtn{
+    padding-left: 25px;
+}
+body{
+	background:#000000;
+}
+.login-page, .register-page{
+    background:#000000/* url('dist/img/login-bg/login-bg.jpg') top*/;
+    background-repeat: no-repeat;
+    background-position: top;
+	opacity:0.2;
+	background-size: 100%;
+}
+.login-box-body, .register-box-body {
+    background: transparent;
+}
+.login-logo a, .register-logo a {
+    color: #f9f7f7;
+}
+.skin-blue .main-header .logo {
+    background-color: #040404;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+.skin-blue .main-header .navbar {
+    background-color: #0d0f10;
+}
+.skin-blue .main-header li.user-header {
+    background-color: #de0000;
+}
+.main-footer {
+    background: rgb(19, 18, 18);
+    padding: 15px;
+    color: #444;
+    border-top: 1px solid #d2d6de;
+}
+/****************OVERRIDE ***************/
+a .info-box.bg-aqua:hover{
+	transition:500ms;
+	background-color: #ef0000 !important;
+}
+.help-inline{
+	font-size:10px;
+}
+.progress{
+	width:214px;
+	height:138px;
+	margin:0 auto;
+}
+.btn-warning:hover, .btn-warning:active, .btn-warning.hover {
+    background-color: #d47d10;
+    transition:500ms;
+}
+.btn-success:hover, .btn-success:active, .btn-success.hover {
+    background-color: #007740;
+	transition:500ms;
+}
+.users-list>li img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    width: 115px;
+    height: 115px;
+}
+.skin-blue .sidebar-menu>li.header {
+    color: #ffffff;
+    background: #ff0000;
+}
+.login-box, .register-box {
+    width: 360px;
+    margin: 7% auto;
+    background: #000000cc;
+}
+
+/* ************************  **************************  */
+.sub-table{ border: solid 1px #5991C5; margin: 10px 5px 10px 5px;}
+.sub-table td {padding: 4px;}
+.sub-sub-table{ border: solid 1px #E6E6E6; margin: 10px 5px 10px 5px;}
+.sub-table-grey{ border: solid 1px #E6E6E6; margin: 10px 5px 10px 5px;}
+.sub-table-title{background-color: #843232; color: #FFFFFF; padding: 5px; font-family: monospace; font-weight: bold; font-size: 14px; text-transform: uppercase;}
+.sub-table-sub-title{background-color: #B4B4B4; color: #FFFFFF; padding: 5px; font-family: monospace; font-weight: bold; font-size: 14px; text-transform: uppercase;}
+.sub-table-content{padding: 5px;}
+/*
+Table Style - This is what you want
+------------------------------------------------------------------ */
+
+
+.std-Table a:link, .std-invoice-Table a:link, .std-Table-view a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+.std-Table a:visited, .std-invoice-Table a:visited, .std-Table-view a:visited{
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+.std-Table a:active, .std-invoice-Table a:active, .std-Table a:hover, 
+.std-Table-view a:active, .std-invoice-Table a:active, .std-Table-view a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+.std-Table, .std-Table-view {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+/*	text-shadow: 1px 1px 0px #fff;*/
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+.std-invoice-Table {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.std-Table, .std-invoice-Table, .std-Table-view {
+	color:#666;
+	background:#eaebec;
+	margin:0px;
+
+}
+.std-Table th, .std-Table-view th {
+	padding:8px 10px 8px 10px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+
+	background: #F8F8F8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+.std-invoice-Table th {
+	padding:8px 10px 8px 10px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+	background: #F8F8F8;
+}
+.std-Table th:first-child, .std-invoice-Table th:first-child, .std-Table-view th:first-child {
+	text-align: left;
+	padding-left:10px;
+}
+.std-Table tr:first-child th:first-child, .std-invoice-Table tr:first-child th:first-child, .std-Table-view tr:first-child th:first-child {
+	-moz-border-radius-topleft:2px;
+	-webkit-border-top-left-radius:2px;
+	border-top-left-radius:2px;
+}
+table tr:first-child th:last-child {
+	-moz-border-radius-topright:2px;
+	-webkit-border-top-right-radius:2px;
+	border-top-right-radius:2px;
+}
+.std-Table tr, .std-invoice-Table tr, .std-Table-view tr{
+	text-align: left;
+	padding-left:8px;
+}
+.std-Table-view tr:hover td {
+        cursor: pointer !important;
+        background: #F8F8F8 !important;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#eaeaea));
+        background: -moz-linear-gradient(top,  #ebebeb,  #eaeaea);
+}
+.std-Table tr td:first-child, .std-Table-view tr td:first-child{
+	text-align: left;
+	padding-left:5px;
+}
+
+.std-Table tr td:first-child , .std-invoice-Table tr td:first-child{
+	border-left: 0;
+}
+.std-Table tr td, .std-Table-view tr td {
+	padding:3px;
+	padding-top:4px;
+	background: #FFF;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+	border-top: 1px solid #EBEBEB;
+	border-bottom:0px;
+	border-left: 0px;
+}
+.std-invoice-Table tr td{
+	padding:3px;
+	padding-top:4px;
+	background: #FFF;
+	border-top: 1px solid #EBEBEB;
+	border-bottom:0px;
+	border-left: 0px;
+}
+.std-Table-view tr td {
+	border-left: 1px solid #EEEEEE;
+}
+.std-hover {
+  background: #7dbef1;
+}
+.std-Table tr td ,.std-Table tr td {
+	border-right: 0;
+}
+.std-Table tr.even td, .std-invoice-Table tr.even td{
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+.std-Table tr:last-child td, .std-invoice-Table tr:last-child td, .std-Table tr:last-child td,
+.std-Table-view tr:last-child td, .std-Table-view tr:last-child td{
+	border-bottom:0;
+}
+.std-Table tr:last-child td:first-child, .std-invoice-Table tr:last-child td:first-child, .std-Table-view tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+.std-Table tr:last-child td:last-child, .std-invoice-Table tr:last-child td:last-child, .std-Table-view tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+.std-invoice-Table input[type=text]{
+    border: 1px solid #CECECE;
+}
+.invoice-title{
+/*    background-color: #F3F3F3;*/
+    padding: 0px 8px 0px 8px;
+    color: #696969;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+.invoice-sub-title{
+    background: #FFFFFF;
+    color: #535353;
+}
+.invoice-outer-table {
+    background-color: #FFF;
+    border-top: 2px solid #CFCFCF;
+/*   border: 1px solid #C9C9C9;*/
+/*    margin-top: 40px;*/
+}
+
+.table, .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border: 1px solid #afaeae;
+}
+.table>thead{
+	background: #c8f1eb;
+}
+.table>tfoot {
+    background: #aeef9e;
+}
+/* ************************************************** */

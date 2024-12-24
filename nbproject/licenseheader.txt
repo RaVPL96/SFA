@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}This system Licenced to Raigam Marketing Services (Pvt) Ltd. 
+${licensePrefix}Developed By: Lakshitha Pradeep Karunarathna ${licensePrefix}
+${licensePrefix}Company: Serving Cloud INC in association with MyOffers.lk ${licensePrefix}
+${licensePrefix}Date Started:  October 20, 2017 ${licensePrefix}
+<#if licenseLast??>
+${licenseLast}
+</#if>

@@ -1,0 +1,419 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.9
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 04, 2016 at 03:27 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.4.22
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `enahsussoftware`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `app_module`
+--
+
+CREATE TABLE IF NOT EXISTS `app_module` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL COMMENT 'module name',
+  `fa_icon` varchar(50) NOT NULL,
+  `display_order` int(10) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='App main module names' AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `app_module`
+--
+
+INSERT INTO `app_module` (`id`, `name`, `fa_icon`, `display_order`, `isact`) VALUES
+(1, 'Users Module ', 'fa fa-users', 0, 1),
+(2, 'Inventory Control', 'fa fa-wrench', 1, 1),
+(3, 'Supervisor Control', 'fa fa-black-tie', 2, 1),
+(4, 'Job Module', 'fa fa-briefcase', 3, 1),
+(5, 'Reports Module', 'fa fa-bar-chart', 5, 1),
+(6, 'Sales Module', 'fa fa-cubes', 6, 1),
+(7, 'Settings Module', 'fa fa-gear', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `app_module_function`
+--
+
+CREATE TABLE IF NOT EXISTS `app_module_function` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `module_id` int(10) NOT NULL,
+  `function_name` varchar(100) NOT NULL COMMENT 'function name',
+  `url` varchar(250) NOT NULL,
+  `is_menu_link` tinyint(1) NOT NULL DEFAULT '1',
+  `display_name` varchar(100) NOT NULL,
+  `display_order` int(10) NOT NULL DEFAULT '0',
+  `fa_icon` varchar(50) NOT NULL,
+  `comments` varchar(150) NOT NULL DEFAULT '-',
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+--
+-- Dumping data for table `app_module_function`
+--
+
+INSERT INTO `app_module_function` (`id`, `module_id`, `function_name`, `url`, `is_menu_link`, `display_name`, `display_order`, `fa_icon`, `comments`, `isact`) VALUES
+(1, 1, 'createAcc', 'users/createAcc', 1, 'Add/Modify User', 0, 'fa fa-user', '', 1),
+(2, 1, 'allowUserAccess', 'users/allowUserAccess', 1, 'Authenticate User', 2, 'fa fa-key', '', 1),
+(3, 1, 'createGrp', 'users/createGrp', 1, 'User Access Group', 1, 'fa fa-group', 'Create User gruop', 1),
+(4, 1, 'itemLocation', 'items/itemLocation', 1, 'Set Locations', 3, 'fa fa-building', 'Location Details ', 1),
+(5, 2, 'itemPartCategory', 'items/itemPartCategory', 1, 'Item Category', 2, 'fa fa-object-group', 'Parts category data', 1),
+(6, 2, 'itemPartMade', 'items/itemPartMade', 1, 'Create New Brand for Parts', 3, 'fa fa-industry', '-', 1),
+(7, 1, 'authLocation', 'users/authLocation', 1, 'Grant Location Access', 4, 'fa fa-map', 'grant location access for a user', 1),
+(8, 2, 'itemPartModel', 'items/itemPartModel', 1, 'Create New Model for Parts', 4, 'fa fa-clone', 'parts models', 1),
+(9, 2, 'itemParts', 'items/itemParts', 1, 'Parts', 5, 'fa fa-wrench', 'item parts data', 1),
+(10, 2, 'itemServices', 'items/itemServices', 1, 'Services', 5, 'fa fa-paint-brush', 'service data', 1),
+(11, 3, 'itemJobMade', 'items/itemJobMade', 1, 'Job Item Made', 0, 'fa fa-industry', 'Job Item Made details', 1),
+(12, 3, 'itemJobModel', 'items/itemJobModel', 1, 'Job Item Model', 1, 'fa fa-object-group', 'job item made its model number', 1),
+(13, 3, 'itemJobFault', 'items/itemJobFault', 1, 'Faults', 3, 'fa fa-chain-broken', 'fault description for a item category', 1),
+(14, 2, 'itemAccossory', 'items/itemAccossory', 1, 'Job Accessory', 7, 'fa fa-plug', 'Accessory details', 1),
+(15, 4, 'newJob', 'jobs/newJob', 1, 'New Jobs', 0, 'fa fa-suitcase', 'New Jobs', 1),
+(16, 5, 'rptJobList', 'reports/rptJobList', 1, 'Job List', 0, 'fa fa-area-chart', '-', 1),
+(17, 5, 'rptCusList', 'reports/rptCusList', 1, 'Customer Report', 0, 'fa fa-users', '-', 1),
+(18, 5, 'rptProductivityList', 'reports/rptProductivityList', 1, 'Employee Productivity', 2, 'fa fa-line-chart', '-', 1),
+(19, 5, 'rptStockList', 'reports/rptStockList', 1, 'Stock Report', 3, 'fa fa-database', '-', 1),
+(20, 6, 'itemSalesAccossory', 'items/itemSalesAccossory', 0, 'Sales Accessory', 0, 'fa fa-wrench', 'accessory for sales', 0),
+(21, 2, 'addGRN', 'items/addGRN', 1, 'GRN', 9, 'fa fa-cubes', 'good reveived notes', 1),
+(22, 6, 'saleInvoice', 'jobs/saleInvoice', 1, 'Sale', 0, 'fa fa-file-pdf-o', 'item sale window', 1),
+(23, 2, 'getStockLevel', 'items/getStockLevel', 1, 'Stock Levels', 9, 'fa fa-line-chart', 'stock levels in locations', 1),
+(24, 2, 'addTransfer', 'items/addTransfer', 1, 'Transfers', 10, 'fa fa-truck', 'items transfers', 1),
+(25, 2, 'stockMessages', 'items/stockMessages', 1, 'Stock Messages', 11, 'fa fa-envelope', '-', 1),
+(26, 6, 'getPriceList', 'items/getPriceList', 1, 'Price Check', 10, 'fa fa-dollar', 'price data of parts services, accessory', 1),
+(27, 1, 'updateCustomer', 'customers/CustomerData', 1, 'Modify Customer', 5, 'fa fa-pencil-square-o', 'customer data', 1),
+(28, 6, 'rptSalesList', 'reports/rptSalesList', 1, 'View Invoices', 5, 'fa fa-bar-chart', 'sales invoice data', 1),
+(29, 7, 'createBackup', 'settings/createBackup', 1, 'Backup', 0, 'fa fa-database', '-', 1),
+(30, 6, 'itemSales', 'items/itemSales', 1, 'Add Sale Items', 0, 'fa fa-cubes', 'item for sale data', 1),
+(31, 1, 'updatePassAcc', 'users/updatePassAcc', 1, 'Change Password', 7, 'fa fa-key', 'change password for user account logged in', 1),
+(32, 7, 'setPrinter', 'settings/setPrinter', 1, 'Setup Printer', 1, 'fa fa-print', '-', 1),
+(33, 2, 'itemRepairCharges', 'items/itemRepairCharges', 1, 'Repair Charges', 6, 'fa fa-money', '-', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ic_locations`
+--
+
+CREATE TABLE IF NOT EXISTS `ic_locations` (
+  `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `phone` varchar(25) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `website` varchar(150) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  `isdel` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Location details ' AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `ic_locations`
+--
+
+INSERT INTO `ic_locations` (`id`, `name`, `address`, `phone`, `email`, `website`, `isact`, `isdel`) VALUES
+(001, 'Mt. Albert', '1081, New North Road, Mt Albert, Auckland', '09 849 6255', 'service@multifix.co.nz', 'www.multifix.co.nz', 1, 0),
+(002, 'Otahuhu', '3/60, Atkinson Ave, Otahuhu, Auckland', '09 276 1920', 'services@bestrepair.co.nz', 'www.multifix.co.nz', 1, 0),
+(003, 'Avondale', '1876, Great North Road Avondale', '09 280 4791', 'sales@multifix.co.nz', 'www.multifix.co.nz', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `useracc`
+--
+
+CREATE TABLE IF NOT EXISTS `useracc` (
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `passcode` varchar(750) NOT NULL,
+  `role` int(3) unsigned zerofill NOT NULL,
+  `cus_id` int(10) NOT NULL DEFAULT '0' COMMENT 'customer id  if a dealer',
+  `postas` varchar(10) NOT NULL DEFAULT 'Personal',
+  `profilepic` varchar(150) NOT NULL,
+  `profname` varchar(75) NOT NULL,
+  `mobile` varchar(25) NOT NULL,
+  `res_mobile` varchar(25) DEFAULT '-',
+  `off_mobile` varchar(25) NOT NULL DEFAULT '-',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `hash` varchar(600) NOT NULL,
+  `resetpw` tinyint(1) NOT NULL DEFAULT '0',
+  `suspend` tinyint(1) NOT NULL DEFAULT '0',
+  `createddate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `useracc`
+--
+
+INSERT INTO `useracc` (`username`, `email`, `passcode`, `role`, `cus_id`, `postas`, `profilepic`, `profname`, `mobile`, `res_mobile`, `off_mobile`, `active`, `deleted`, `hash`, `resetpw`, `suspend`, `createddate`) VALUES
+('Anne', 'tinyshalinka@gmail.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6SCsyT3llNElpT3pwODN4Zzdva2gybURwY2tMTGt4SmY6RzFGOFV1NmJBMUlGUlZXenI2WXNRZ2RqRWZsMkNJVE8=', 003, 0, '3', '14565147401.png', 'Anne Fernando', '0220749659', '0220749659', '0220749659', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6eXFCSjhhMW1UL3ZCSVo2ekVoSllLUXVtc3duOTBNQ0Q6cXcxdURyTGZycUZMZFdPNzFZYkRSN3BGZ09ML0JUZ1I=', 0, 0, '2016-02-19 05:28:16'),
+('Madu', 'madukure@yahoo.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6SFhyZlgzbkhNeFdEQ0I5ODJHekhYaERJZU1lTUluNlc6MXIvcXpMczN3STJUQjRqcWpxU0Q5ZUJuUDJjZXIvTFc=', 003, 0, '3', '14565147231.png', 'Madu Kurera', '0223326565', '0223326565', '0223326565', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6OUJaTkp3Rlp6RUFZT0lac1RhMWxUMTN3RXByaFZFc3Q6NzQ5eVR6bnJLTEVlMjczZDRsRmRVMEJjYk9IN2NoOWo=', 0, 0, '2016-02-19 05:24:10'),
+('MtAlbert', 'samanthe@gmail.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6RlFQWlhBUm5aLyt4NWRjZ3VJOGRocXY4bXV4VS8vQ3M6SVZZQzRCa3dTWlVjdXJDdGdVTmQrWUs2SHNlck1XQlY=', 003, 0, '3', '14566893941.JPG', 'Mtalbert', '0215555555555', '0215555555555', '0215555555555', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6WnoyUGhBeDZjOUZWV3E3UVpZV0VqeDFFUVR2Y0k5OGc6cjhmWFE2RTV1TWVzMHdhT2lwbEZiSHl5K3I1MDU3dkM=', 0, 0, '2016-02-28 19:56:34'),
+('Nalin', 'djnaleen@gmail.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6YzZGbjQ5ek1uTCtEU1FXcUpHMGl6Z3BVQzMvbkVUd006dStWZmNYRGVkYUFlYVQxS1h0aDU1eDhxN1RFQlpJdXA=', 003, 0, '3', '14565255341.jpg', 'Naleen Dhanushka', '021900884', '021900884', '021900884', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6bnBycXk4QWw3RGRtaVVVOFFWZjRhTUFTc0FXSDRXczI6d243SXB6MGJlMWNLMFd2aWNEV0tnUFlDNm03N1FMS1A=', 0, 0, '2016-02-19 05:25:45'),
+('Sachi', 'dorakumbura.sachith@gmail.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6MjVGczk0QW9KZkpIbGdTa0ZLNS9HdTVSTzJVMUdBMEM6aWlXUFVJZHVYN1AzSUxFTk4wWDNZMkZvbEZ3Mnp6d3U=', 003, 0, '3', '14565147031.png', 'Sachi Dorakumbura', '0221590899', '0221590899', '0221590899', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6d1haRDNoRTJISm0vV0V3MG91UjBNaC9xbi92dGg3OW46b0JnUW5wc3RpNFUvaTgzTVJ4a2ZrTXZuc3liSmUvSUM=', 0, 0, '2016-02-19 05:26:45'),
+('Sam', 'sam@multifix.co.nz', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6NDQvTGVvY3pWd0hNblBlVDFwYktnYThtWEhadzNBSlg6SEFPamIySDdydy9PVDdmcUFMK0hLdXNRWFJZL1RCck4=', 003, 0, '3', '14565146651.png', 'Sam Jayathilake', '0212056450', '0212056450', '0212056450', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6SXA3SmkyWXFMQTdxUmRsZk1LZFZuTzVEMmdoSUhmblc6ei9JSVR5LzJPRTJ1MnQvWG10SFVBQStqZ0NKekFUQjQ=', 0, 0, '2016-02-24 05:09:59'),
+('tharaka', 'info@enahsussoftware.com', 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6V3RnSTViUjN1bWJoWmJZbGh6dXIyMHJxOUpwMWFUdUU6Yi9GUnh5SFd5bG1OeFlGeDJDejgyYzJtV1Zid25mWGQ=', 003, 0, '3', '14564357101.png', 'Tharaka Karunakalage', '0210525366', '0210525366', '0210525366', 1, 0, 'R09ORVJJU0tTRUM6QkVTVExVQ0tsYW5rYUNvZGU6MGtwMGFOc0cwVmI2WDgyeHJaUDVuMVRhc2N4L0lkUjI6cEhDMFg4NFVYbkx5KzJZN01UcXl3VG1rTDkzK1laZmY=', 0, 0, '2015-11-03 23:03:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `useracc_ic_location`
+--
+
+CREATE TABLE IF NOT EXISTS `useracc_ic_location` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(100) NOT NULL,
+  `location_id` int(11) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='user account and location allowed' AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `useracc_ic_location`
+--
+
+INSERT INTO `useracc_ic_location` (`id`, `user_id`, `location_id`, `isact`) VALUES
+(5, 'admin', 1, 1),
+(6, 'admin', 2, 1),
+(10, 'sajith', 1, 1),
+(11, 'sajith', 2, 1),
+(15, 'tharaka', 1, 1),
+(16, 'tharaka', 2, 1),
+(17, 'tharaka', 3, 1),
+(18, 'dlrchamara', 1, 1),
+(19, 'dlrchamara', 2, 1),
+(20, 'dlrchamara', 3, 1),
+(21, 'BecexTech', 1, 1),
+(22, 'Mt%20Albert', 1, 1),
+(23, 'avondale', 3, 1),
+(24, 'Anne', 2, 1),
+(25, 'Madu', 1, 1),
+(26, 'Nalin', 1, 1),
+(27, 'Nalin', 3, 1),
+(28, 'Sachi', 1, 1),
+(32, 'Sam', 1, 1),
+(33, 'Sam', 2, 1),
+(34, 'Sam', 3, 1),
+(36, 'MtAlbert', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_group`
+--
+
+CREATE TABLE IF NOT EXISTS `user_group` (
+  `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `module_id` int(10) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  `delete` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='user access groups' AUTO_INCREMENT=16 ;
+
+--
+-- Dumping data for table `user_group`
+--
+
+INSERT INTO `user_group` (`id`, `name`, `module_id`, `isact`, `delete`) VALUES
+(001, 'Administrators - Users Module', 1, 1, 0),
+(002, 'User Access - Data Entry', 1, 1, 0),
+(003, 'IC - Admin Privilages ', 2, 1, 0),
+(004, 'SC - Admin Privilages', 3, 1, 0),
+(005, 'JB - Admin Privilages', 4, 1, 0),
+(006, 'RP - Admin Privilages', 5, 1, 0),
+(007, 'SL-Admin Previlages', 6, 1, 0),
+(008, 'JB-Dealer Access', 4, 1, 0),
+(009, 'SS - Admin Privilages', 7, 1, 0),
+(010, ' All General Users - User Access', 1, 1, 0),
+(011, ' All General Users - Inventory Access', 2, 1, 0),
+(012, ' All General Users - User Supervisor Access', 3, 1, 0),
+(013, ' All General Users - Reports Access', 5, 1, 0),
+(014, ' All General Users - Sale Access', 6, 1, 0),
+(015, ' All General Users + All Sale - Sale Access', 6, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_group_module_function`
+--
+
+CREATE TABLE IF NOT EXISTS `user_group_module_function` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_group_id` int(10) NOT NULL,
+  `module_function_id` int(10) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='app module function and user group relation' AUTO_INCREMENT=177 ;
+
+--
+-- Dumping data for table `user_group_module_function`
+--
+
+INSERT INTO `user_group_module_function` (`id`, `user_group_id`, `module_function_id`, `isact`) VALUES
+(36, 4, 11, 1),
+(37, 4, 12, 1),
+(38, 4, 13, 1),
+(46, 5, 15, 1),
+(65, 8, 15, 1),
+(112, 6, 16, 1),
+(113, 6, 17, 1),
+(114, 6, 18, 1),
+(115, 6, 19, 1),
+(116, 6, 28, 1),
+(122, 2, 3, 1),
+(123, 2, 4, 1),
+(124, 2, 7, 1),
+(126, 7, 20, 1),
+(127, 7, 22, 1),
+(128, 7, 30, 1),
+(141, 10, 27, 1),
+(142, 10, 31, 1),
+(145, 13, 16, 1),
+(146, 11, 23, 1),
+(147, 11, 25, 1),
+(148, 1, 1, 1),
+(149, 1, 3, 1),
+(150, 1, 2, 1),
+(151, 1, 4, 1),
+(152, 1, 7, 1),
+(153, 1, 27, 1),
+(154, 1, 31, 1),
+(155, 12, 13, 1),
+(156, 14, 22, 1),
+(157, 14, 28, 1),
+(158, 14, 26, 1),
+(159, 15, 20, 1),
+(160, 15, 22, 1),
+(161, 15, 30, 1),
+(162, 15, 28, 1),
+(163, 15, 26, 1),
+(164, 9, 29, 1),
+(165, 9, 32, 1),
+(166, 3, 33, 1),
+(167, 3, 5, 1),
+(168, 3, 6, 1),
+(169, 3, 8, 1),
+(170, 3, 9, 1),
+(171, 3, 10, 1),
+(172, 3, 14, 1),
+(173, 3, 21, 1),
+(174, 3, 23, 1),
+(175, 3, 24, 1),
+(176, 3, 25, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_levels_auth`
+--
+
+CREATE TABLE IF NOT EXISTS `user_levels_auth` (
+  `id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
+  `group_id` int(10) unsigned zerofill NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='user authorized access levels' AUTO_INCREMENT=260 ;
+
+--
+-- Dumping data for table `user_levels_auth`
+--
+
+INSERT INTO `user_levels_auth` (`id`, `user_id`, `group_id`, `isact`) VALUES
+(00099, 'sajith', 0000000001, 1),
+(00100, 'sajith', 0000000005, 1),
+(00125, 'admin', 0000000001, 1),
+(00126, 'admin', 0000000003, 1),
+(00127, 'admin', 0000000004, 1),
+(00128, 'admin', 0000000005, 1),
+(00129, 'admin', 0000000006, 1),
+(00130, 'admin', 0000000007, 1),
+(00137, 'dlrchamara', 0000000008, 1),
+(00138, 'BecexTech', 0000000008, 1),
+(00139, 'dlrlakshitha', 0000000008, 1),
+(00140, 'Mt%20Albert', 0000000002, 1),
+(00141, 'Mt%20Albert', 0000000005, 1),
+(00142, 'avondale', 0000000002, 1),
+(00143, 'avondale', 0000000005, 1),
+(00148, 'tharaka', 0000000001, 1),
+(00149, 'tharaka', 0000000003, 1),
+(00150, 'tharaka', 0000000004, 1),
+(00151, 'tharaka', 0000000005, 1),
+(00152, 'tharaka', 0000000006, 1),
+(00153, 'tharaka', 0000000007, 1),
+(00154, 'tharaka', 0000000009, 1),
+(00177, 'Sam', 0000000001, 1),
+(00178, 'Sam', 0000000002, 1),
+(00179, 'Sam', 0000000003, 1),
+(00180, 'Sam', 0000000004, 1),
+(00181, 'Sam', 0000000005, 1),
+(00182, 'Sam', 0000000006, 1),
+(00183, 'Sam', 0000000007, 1),
+(00184, 'Sam', 0000000009, 1),
+(00216, 'Sachi', 0000000005, 1),
+(00217, 'Sachi', 0000000010, 1),
+(00218, 'Sachi', 0000000011, 1),
+(00219, 'Sachi', 0000000012, 1),
+(00220, 'Sachi', 0000000013, 1),
+(00221, 'Sachi', 0000000014, 1),
+(00222, 'Anne', 0000000005, 1),
+(00223, 'Anne', 0000000010, 1),
+(00224, 'Anne', 0000000011, 1),
+(00225, 'Anne', 0000000012, 1),
+(00226, 'Anne', 0000000013, 1),
+(00227, 'Anne', 0000000014, 1),
+(00235, 'Nalin', 0000000005, 1),
+(00236, 'Nalin', 0000000010, 1),
+(00237, 'Nalin', 0000000011, 1),
+(00238, 'Nalin', 0000000012, 1),
+(00239, 'Nalin', 0000000013, 1),
+(00240, 'Nalin', 0000000014, 1),
+(00241, 'Madu', 0000000005, 1),
+(00242, 'Madu', 0000000010, 1),
+(00243, 'Madu', 0000000011, 1),
+(00244, 'Madu', 0000000012, 1),
+(00245, 'Madu', 0000000013, 1),
+(00246, 'Madu', 0000000015, 1),
+(00256, 'MtAlbert', 0000000002, 1),
+(00257, 'MtAlbert', 0000000005, 1),
+(00258, 'MtAlbert', 0000000010, 1),
+(00259, 'MtAlbert', 0000000014, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_type`
+--
+
+CREATE TABLE IF NOT EXISTS `user_type` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `isact` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='user type table' AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `user_type`
+--
+
+INSERT INTO `user_type` (`id`, `name`, `isact`) VALUES
+(1, 'Administrator', 0),
+(2, 'Casual', 1),
+(3, 'Permanent', 1),
+(4, 'Part Time', 1),
+(5, 'Dealer', 1);
