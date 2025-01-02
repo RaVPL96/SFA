@@ -73,20 +73,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => 'localhost',
+// 	'username' => 'raigam_master',
+// 	'password' => '$#@}VK6#XrRh',
+// 	'database' => 'raigam_db',
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'raigam_master',
-	'password' => '$#@}VK6#XrRh',
-	'database' => 'raigam_db',
+	//'hostname' => '127.0.0.1:3306',
+	'hostname' => '162.215.222.244',
+    'port' => '3306',
+	'username' => 'wayambacereals_admin1',
+	//'username' => 'root',
+	//'password' => 'sys@ag',
+	'password' => '43628630At',
+	'database' => 'wayambacereals_raigamDbTest',
+	//'database' => 'raigam_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
+	'char_set' => 'utf8mb4',
+	'dbcollat' => 'utf8mb4_general_ci',
+	
 	'swap_pre' => '',
 	'encrypt' => FALSE,
 	'compress' => FALSE,
@@ -94,6 +121,26 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 $db['MSSQL'] = array(
     'hostname' => 'Driver={SQL Server};Server=192.168.5.7',
